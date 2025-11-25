@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Gold Glow Effects */
+.neon-text {
+  text-shadow: 0 0 10px var(--neon-color-rgba-light);
+  color: var(--accent-color);
+}
+
+.neon-shadow {
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Glass/3D Card Styles */
+.glass-card {
+  background: rgba(26, 26, 31, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 12px 48px rgba(212, 175, 55, 0.2);
+  transform: translateY(-4px);
+}
+
+/* 3D Tilt Effect */
+.tilt-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.tilt-card:hover {
+  transform: rotateX(5deg) rotateY(5deg) translateZ(10px);
+}
+
+/* Premium Button Styles */
+.btn-gold {
+  background: linear-gradient(135deg, #D4AF37 0%, #E6CFA0 100%);
+  border: 2px solid #D4AF37;
+  border-radius: 12px;
+  color: #0F1115;
+  font-weight: 600;
+  padding: 12px 28px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+.btn-gold:hover {
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-gold-outline {
+  background: transparent;
+  border: 2px solid #D4AF37;
+  color: #D4AF37;
+  border-radius: 12px;
+  font-weight: 600;
+  padding: 12px 28px;
+  transition: all 0.3s ease;
+}
+
+.btn-gold-outline:hover {
+  background: #D4AF37;
+  color: #0F1115;
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fade-up Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Custom Progress Bar Styling */
+.progress-bar {
+  height: 8px;
+  background-color: var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--accent-color);
+  transition: width 1.5s ease-out;
+  width: 0;
+}
+
+/* Responsive and Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+.nav-link.active {
+  color: var(--neon-color);
+  font-weight: 700;
+}
+
+/* Premium Dark-Gold Theme Variables */
+:root {
+  --bg-color: #0F1115;
+  --text-color: #FFFFFF;
+  --card-color: #1A1A1F;
+  --accent-color: #D4AF37;
+  --soft-gold: #E6CFA0;
+  --border-color: #2A2A2F;
+  --muted-text: #B9BEC3;
+  --neon-color: #D4AF37;
+  --neon-color-rgba-light: rgba(212, 175, 55, 0.3);
+  --neon-color-rgba-mid: rgba(212, 175, 55, 0.15);
+}
+
+/* Light Mode Variables (applied via [data-theme='light']) */
+[data-theme='light'] {
+  --bg-color: #F5F3F0;
+  --text-color: #0F1115;
+  --card-color: #FFFFFF;
+  --accent-color: #D4AF37;
+  --soft-gold: #E6CFA0;
+  --border-color: #E0DDD8;
+  --muted-text: #6B6B6B;
+  --neon-color: #D4AF37;
+  --neon-color-rgba-light: rgba(212, 175, 55, 0.2);
+  --neon-color-rgba-mid: rgba(212, 175, 55, 0.1);
+}
+
