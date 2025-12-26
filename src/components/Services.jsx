@@ -1,4 +1,8 @@
+import useScrollAnimation from '../hooks/useScrollAnimation';
+
 const Services = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation(0.1);
+
   const services = [
     {
       title: 'Social Media Management',
@@ -51,9 +55,13 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-24 px-6 bg-[--bg-color] transition-colors duration-500">
+    <section
+      id="services"
+      ref={sectionRef}
+      className="py-24 px-6 bg-[--bg-color] transition-colors duration-500"
+    >
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-[--text-color] mb-4">
             Services Built for Growth
           </h2>
@@ -64,7 +72,11 @@ const Services = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="glass-card p-8 hover:shadow-lg transition-all duration-300 group">
+            <div
+              key={index}
+              className={`glass-card p-8 hover:shadow-lg transition-all duration-500 group ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
               <div className="text-5xl mb-4 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 inline-block">{service.icon}</div>
               <h3 className="text-2xl font-bold text-[--text-color] mb-3 transition-colors duration-300 group-hover:text-[--accent-start]">{service.title}</h3>
               <p className="text-[--text-secondary] mb-6">{service.description}</p>

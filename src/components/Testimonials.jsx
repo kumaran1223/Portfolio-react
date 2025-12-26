@@ -1,4 +1,8 @@
+import useScrollAnimation from '../hooks/useScrollAnimation';
+
 const Testimonials = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation(0.1);
+
   const testimonials = [
     {
       name: 'Sarah Johnson',
@@ -21,9 +25,13 @@ const Testimonials = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-24 px-6 bg-[--bg-color] transition-colors duration-500">
+    <section
+      id="testimonials"
+      ref={sectionRef}
+      className="py-24 px-6 bg-[--bg-color] transition-colors duration-500"
+    >
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-[--text-color] mb-4">
             What Clients Say
           </h2>
@@ -34,7 +42,11 @@ const Testimonials = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="glass-card p-8 hover:shadow-lg transition-all duration-300">
+            <div
+              key={index}
+              className={`glass-card p-8 hover:shadow-lg transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
               <div className="flex gap-1 mb-6">
                 {[...Array(5)].map((_, i) => (
                   <span key={i} className="text-[--accent-start] text-lg">★</span>

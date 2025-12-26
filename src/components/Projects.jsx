@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const { ref: sectionRef, isVisible } = useScrollAnimation(0.1);
 
   const projects = [
     {
@@ -44,9 +46,13 @@ const Projects = () => {
 
   return (
     <>
-      <section id="projects" className="py-24 px-6 bg-[--bg-color] transition-colors duration-500">
+      <section
+        id="projects"
+        ref={sectionRef}
+        className="py-24 px-6 bg-[--bg-color] transition-colors duration-500"
+      >
         <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-4xl md:text-5xl font-bold text-[--text-color] mb-4">
               Portfolio & Case Studies
             </h2>
@@ -59,7 +65,8 @@ const Projects = () => {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="glass-card overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className={`glass-card overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-500 hover:scale-105 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${index * 150}ms` }}
                 onClick={() => setSelectedProject(project)}
               >
                 <div className="relative overflow-hidden h-64 bg-gradient-subtle">

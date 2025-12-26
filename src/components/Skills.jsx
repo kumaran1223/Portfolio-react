@@ -5,11 +5,11 @@ const Skills = () => {
   const sectionRef = useRef(null);
 
   const skills = [
-    { name: 'Design', progress: 100, icon: 'fa-palette' },
-    { name: 'Figma', progress: 90, icon: 'fa-drafting-compass' },
-    { name: 'HTML/CSS', progress: 100, icon: 'fa-code' },
-    { name: 'JavaScript', progress: 85, icon: 'fa-js' },
-    { name: 'React', progress: 90, icon: 'fa-react' },
+    { name: 'Design', progress: 100, icon: 'fa-palette', iconType: 'fas' },
+    { name: 'Figma', progress: 90, icon: 'fa-figma', iconType: 'fab' },
+    { name: 'HTML/CSS', progress: 100, icon: 'fa-html5', iconType: 'fab' },
+    { name: 'JavaScript', progress: 85, icon: 'fa-js', iconType: 'fab' },
+    { name: 'React', progress: 90, icon: 'fa-react', iconType: 'fab' },
   ];
 
   const softSkills = [
@@ -66,6 +66,7 @@ const Skills = () => {
                 progress={skill.progress}
                 isVisible={isVisible}
                 icon={skill.icon}
+                iconType={skill.iconType}
               />
             ))}
           </div>
@@ -87,71 +88,67 @@ const Skills = () => {
   );
 };
 
-const SkillBar = ({ name, progress, isVisible, icon }) => {
-  const [currentProgress, setCurrentProgress] = useState(0);
+const SkillBar = ({ name, progress, isVisible, icon, iconType = 'fas' }) => {
   const [displayProgress, setDisplayProgress] = useState(0);
-  const [stage, setStage] = useState('idle'); // idle, filling-to-100, pausing, dropping
+  const [displayPercent, setDisplayPercent] = useState(0);
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isVisible || hasAnimated.current) return;
+    hasAnimated.current = true;
 
     // Stage 1: Animate to 100%
-    setStage('filling-to-100');
     let current = 0;
     const fillInterval = setInterval(() => {
-      current += 2;
+      current += 3;
       if (current >= 100) {
         current = 100;
         clearInterval(fillInterval);
-        setCurrentProgress(100);
         setDisplayProgress(100);
-        setStage('pausing');
+        setDisplayPercent(100);
+
+        // Stage 2: Pause at 100%, then drop to actual
+        setTimeout(() => {
+          let dropCurrent = 100;
+          const step = (100 - progress) / 25;
+
+          const dropInterval = setInterval(() => {
+            dropCurrent -= step;
+            if (dropCurrent <= progress) {
+              dropCurrent = progress;
+              clearInterval(dropInterval);
+            }
+            setDisplayProgress(Math.round(dropCurrent));
+            setDisplayPercent(Math.round(dropCurrent));
+          }, 25);
+        }, 800); // 0.8 second pause at 100%
       } else {
-        setCurrentProgress(current);
         setDisplayProgress(current);
+        setDisplayPercent(current);
       }
-    }, 10);
+    }, 15);
 
     return () => clearInterval(fillInterval);
-  }, [isVisible]);
-
-  // Stage 2: Pause at 100%, then drop to actual percentage
-  useEffect(() => {
-    if (stage !== 'pausing') return;
-
-    const pauseTimer = setTimeout(() => {
-      setStage('dropping');
-      // Animate down to actual percentage
-      let current = 100;
-      const dropInterval = setInterval(() => {
-        current -= (100 - progress) / 20;
-        if (current <= progress) {
-          current = progress;
-          clearInterval(dropInterval);
-          setStage('complete');
-        }
-        setDisplayProgress(Math.round(current));
-      }, 30);
-
-      return () => clearInterval(dropInterval);
-    }, 750); // 0.75 second pause at 100%
-
-    return () => clearTimeout(pauseTimer);
-  }, [stage, progress]);
+  }, [isVisible, progress]);
 
   return (
-    <div className="glass-card p-4 hover:shadow-lg transition-all duration-300">
-      <div className="flex items-center justify-between mb-3">
+    <div className="glass-card p-5 hover:shadow-lg transition-all duration-300 hover:border-[--accent-color]">
+      <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
-          {icon && <i className={`fas ${icon} text-[--accent-color] text-lg`}></i>}
-          <span className="text-[--text-color] font-medium">{name}</span>
+          {icon && <i className={`${iconType} ${icon} text-[--accent-color] text-xl`}></i>}
+          <span className="text-[--text-color] font-semibold text-lg">{name}</span>
         </div>
-        <span className="text-[--accent-color] font-bold">{currentProgress}%</span>
+        <span className="text-[--accent-color] font-bold text-lg">{displayPercent}%</span>
       </div>
-      <div className="w-full bg-[--border-color] rounded-full h-2 overflow-hidden">
+      <div className="w-full bg-[--border-color] rounded-full h-3 overflow-hidden">
         <div
-          className="bg-gradient-to-r from-[--accent-color] to-[--soft-gold] h-full rounded-full transition-all duration-300"
-          style={{ width: `${displayProgress}%` }}
+          className="h-full rounded-full"
+          style={{
+            width: `${displayProgress}%`,
+            background: 'linear-gradient(90deg, var(--accent-start) 0%, var(--accent-end) 100%)',
+            transition: 'width 0.1s ease-out',
+            boxShadow: '0 0 10px rgba(212, 175, 55, 0.5)'
+          }}
         ></div>
       </div>
     </div>

@@ -1,4 +1,8 @@
+import useScrollAnimation from '../hooks/useScrollAnimation';
+
 const Pricing = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation(0.1);
+
   const packages = [
     {
       type: 'One-Time Projects',
@@ -30,9 +34,13 @@ const Pricing = () => {
   ];
 
   return (
-    <section id="pricing" className="py-24 px-6 bg-[--bg-color] transition-colors duration-500">
+    <section
+      id="pricing"
+      ref={sectionRef}
+      className="py-24 px-6 bg-[--bg-color] transition-colors duration-500"
+    >
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-[--text-color] mb-4">
             Simple, Transparent Pricing
           </h2>
@@ -45,7 +53,8 @@ const Pricing = () => {
           {packages.map((pkg, index) => (
             <div
               key={index}
-              className={`glass-card p-8 transition-all duration-300 ${pkg.featured ? 'ring-2 ring-[--accent-start] transform md:scale-105 shadow-xl' : 'hover:shadow-lg'}`}
+              className={`glass-card p-8 transition-all duration-500 ${pkg.featured ? 'ring-2 ring-[--accent-start] transform md:scale-105 shadow-xl' : 'hover:shadow-lg'} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
               {pkg.featured && (
                 <div className="bg-gradient-accent text-white px-4 py-1 rounded-full inline-block mb-4 text-sm font-bold">

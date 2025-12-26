@@ -1,4 +1,8 @@
+import useScrollAnimation from '../hooks/useScrollAnimation';
+
 const Trust = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation(0.1);
+
   const process = [
     {
       step: '01',
@@ -50,9 +54,13 @@ const Trust = () => {
   ];
 
   return (
-    <section id="trust" className="py-24 px-6 bg-[--bg-color] transition-colors duration-500">
+    <section
+      id="trust"
+      ref={sectionRef}
+      className="py-24 px-6 bg-[--bg-color] transition-colors duration-500"
+    >
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-[--text-color] mb-4">
             Why Clients Trust Me
           </h2>
@@ -63,11 +71,15 @@ const Trust = () => {
 
         {/* Process Steps */}
         <div className="mb-20">
-          <h3 className="text-2xl font-bold text-[--text-color] mb-12 text-center">My Process</h3>
+          <h3 className={`text-2xl font-bold text-[--text-color] mb-12 text-center transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>My Process</h3>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {process.map((item, index) => (
-              <div key={index} className="glass-card p-8 text-center hover:shadow-lg transition-all duration-300">
-                <div className="text-5xl mb-4">{item.icon}</div>
+              <div
+                key={index}
+                className={`glass-card p-8 text-center hover:shadow-lg transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${150 + index * 100}ms` }}
+              >
+                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
                 <div className="text-sm font-bold text-[--accent-start] mb-2 uppercase tracking-wider">
                   Step {item.step}
                 </div>

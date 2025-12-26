@@ -283,32 +283,33 @@ html {
   font-weight: 700;
 }
 
-/* Modern SaaS Theme Variables */
+/* Premium Dark-Gold Theme Variables */
 :root {
-  --bg-primary: #1A202C;
-  --bg-secondary: #2D3748;
-  --accent-start: #667EEA;
-  --accent-end: #764BA2;
-  --text-primary: #E2E8F0;
-  --text-secondary: #A0AEC0;
-  --border-color: #4A5568;
+  --bg-primary: #0F1115;
+  --bg-secondary: #1A1F2E;
+  --accent-start: #D4AF37;
+  --accent-end: #E6CFA0;
+  --text-primary: #FFFFFF;
+  --text-secondary: #B9BEC3;
+  --border-color: #2A2F3E;
   --success-color: #48BB78;
   --warning-color: #ED8936;
 
   /* Legacy variables for compatibility */
-  --bg-color: #1A202C;
-  --text-color: #E2E8F0;
-  --card-color: #2D3748;
-  --accent-color: #667EEA;
-  --muted-text: #A0AEC0;
+  --bg-color: #0F1115;
+  --text-color: #FFFFFF;
+  --card-color: #1A1F2E;
+  --accent-color: #D4AF37;
+  --soft-gold: #E6CFA0;
+  --muted-text: #B9BEC3;
 }
 
 /* Light Mode Variables */
 [data-theme='light'] {
   --bg-primary: #F7FAFC;
   --bg-secondary: #FFFFFF;
-  --accent-start: #667EEA;
-  --accent-end: #764BA2;
+  --accent-start: #D4AF37;
+  --accent-end: #E6CFA0;
   --text-primary: #1A202C;
   --text-secondary: #4A5568;
   --border-color: #E2E8F0;
@@ -319,7 +320,34 @@ html {
   --bg-color: #F7FAFC;
   --text-color: #1A202C;
   --card-color: #FFFFFF;
-  --accent-color: #667EEA;
+  --accent-color: #D4AF37;
+  --soft-gold: #E6CFA0;
   --muted-text: #4A5568;
+}
+
+/* 3D Perspective for Carousel */
+.perspective {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Scroll-triggered animation classes */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gradient background for skill bars */
+.skill-bar-fill {
+  background: linear-gradient(90deg, var(--accent-start) 0%, var(--accent-end) 100%);
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease-out;
 }
 

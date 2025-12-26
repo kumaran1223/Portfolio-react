@@ -61,49 +61,72 @@ const Hero = () => {
           </div>
 
           {/* Right 3D Carousel */}
-          <div className="flex justify-center items-center">
+          <div className="flex flex-col justify-center items-center">
             <div
-              className="relative w-full max-w-sm h-96 perspective"
+              className="relative w-full max-w-sm h-80 perspective"
               onMouseEnter={() => setIsAutoPlay(false)}
               onMouseLeave={() => setIsAutoPlay(true)}
+              style={{ perspective: '1000px' }}
             >
-              {projects.map((project, index) => (
-                <a
-                  key={index}
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`absolute inset-0 glass-card overflow-hidden transition-all duration-500 transform ${
-                    index === currentSlide
-                      ? 'opacity-100 scale-100 z-10'
-                      : 'opacity-0 scale-95 z-0'
-                  }`}
-                  style={{
-                    transform: index === currentSlide
-                      ? 'rotateY(0deg) scale(1)'
-                      : 'rotateY(90deg) scale(0.8)',
-                  }}
-                >
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[--bg-color] to-transparent flex items-end p-6">
-                    <div>
-                      <h3 className="text-2xl font-serif font-bold text-[--accent-color] mb-2">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm text-[--muted-text]">Click to view project →</p>
+              {projects.map((project, index) => {
+                const isActive = index === currentSlide;
+                const isPrev = index === (currentSlide - 1 + projects.length) % projects.length;
+                const isNext = index === (currentSlide + 1) % projects.length;
+
+                let transform = 'translateX(-50%) rotateY(90deg) scale(0.8)';
+                let opacity = 0;
+                let zIndex = 0;
+
+                if (isActive) {
+                  transform = 'translateX(-50%) rotateY(0deg) scale(1)';
+                  opacity = 1;
+                  zIndex = 10;
+                } else if (isPrev) {
+                  transform = 'translateX(-120%) rotateY(-25deg) scale(0.85)';
+                  opacity = 0.5;
+                  zIndex = 5;
+                } else if (isNext) {
+                  transform = 'translateX(20%) rotateY(25deg) scale(0.85)';
+                  opacity = 0.5;
+                  zIndex = 5;
+                }
+
+                return (
+                  <a
+                    key={index}
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute left-1/2 top-0 w-full h-full rounded-2xl overflow-hidden shadow-2xl"
+                    style={{
+                      transform,
+                      opacity,
+                      zIndex,
+                      transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                      transformStyle: 'preserve-3d',
+                    }}
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[--bg-color] via-transparent to-transparent flex items-end p-6">
+                      <div>
+                        <h3 className="text-2xl font-serif font-bold text-[--accent-color] mb-2">
+                          {project.title}
+                        </h3>
+                        <p className="text-sm text-[--muted-text]">Click to view project →</p>
+                      </div>
                     </div>
-                  </div>
-                </a>
-              ))}
+                  </a>
+                );
+              })}
             </div>
 
             {/* Carousel Controls */}
-            <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-2 mt-8">
+            <div className="flex justify-center gap-3 mt-8">
               {projects.map((_, index) => (
                 <button
                   key={index}
@@ -111,10 +134,10 @@ const Hero = () => {
                     setCurrentSlide(index);
                     setIsAutoPlay(false);
                   }}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  className={`h-3 rounded-full transition-all duration-300 ${
                     index === currentSlide
                       ? 'bg-[--accent-color] w-8'
-                      : 'bg-[--border-color] hover:bg-[--muted-text]'
+                      : 'bg-[--border-color] hover:bg-[--muted-text] w-3'
                   }`}
                   aria-label={`Go to project ${index + 1}`}
                 />

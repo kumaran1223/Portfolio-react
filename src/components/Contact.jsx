@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const Contact = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation(0.1);
   const [showModal, setShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -50,9 +52,13 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 bg-[--bg-color] transition-colors duration-500">
+    <section
+      id="contact"
+      ref={sectionRef}
+      className="py-24 px-6 bg-[--bg-color] transition-colors duration-500"
+    >
       <div className="container mx-auto max-w-3xl">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-[--text-color] mb-4">
             Ready to Get Started?
           </h2>
@@ -84,7 +90,10 @@ const Contact = () => {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="w-full max-w-xl mx-auto glass-card p-8 mb-12">
+        <form
+          onSubmit={handleSubmit}
+          className={`w-full max-w-xl mx-auto glass-card p-8 mb-12 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        >
           <div className="mb-6">
             <label
               htmlFor="name"
