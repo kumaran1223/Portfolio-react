@@ -23,14 +23,27 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="py-24 px-6 bg-[--bg-color] transition-colors duration-500">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl font-serif font-bold text-center text-[--accent-color] mb-16 transition-colors duration-500">
-          Client Testimonials
-        </h2>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-[--text-color] mb-4">
+            What Clients Say
+          </h2>
+          <p className="text-lg text-[--text-secondary] max-w-2xl mx-auto">
+            Real feedback from real clients who've seen results.
+          </p>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="glass-card p-8">
-              <div className="flex items-center gap-4 mb-6">
+            <div key={index} className="glass-card p-8 hover:shadow-lg transition-all duration-300">
+              <div className="flex gap-1 mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-[--accent-start] text-lg">★</span>
+                ))}
+              </div>
+
+              <p className="text-[--text-color] mb-6 leading-relaxed italic">"{testimonial.text}"</p>
+
+              <div className="flex items-center gap-4 pt-6 border-t border-[--border-color]">
                 <img
                   src={testimonial.avatar}
                   alt={testimonial.name}
@@ -38,18 +51,10 @@ const Testimonials = () => {
                   className="w-12 h-12 rounded-full"
                 />
                 <div>
-                  <h4 className="font-bold text-[--text-color]">{testimonial.name}</h4>
-                  <p className="text-sm text-[--muted-text]">{testimonial.role}</p>
+                  <h4 className="font-bold text-[--text-color] text-sm">{testimonial.name}</h4>
+                  <p className="text-xs text-[--text-secondary]">{testimonial.role}</p>
                 </div>
               </div>
-              
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-[--accent-color]">★</span>
-                ))}
-              </div>
-
-              <p className="text-[--text-color] italic">"{testimonial.text}"</p>
             </div>
           ))}
         </div>

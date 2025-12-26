@@ -36,26 +36,26 @@ const Hero = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="fade-up">
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-[--text-color] mb-6 leading-tight">
-              I design high-converting visuals & social content for brands.
+            <h1 className="text-5xl md:text-7xl font-bold text-[--text-color] mb-6 leading-tight">
+              Helping Brands Grow with Design, Content & Ads
             </h1>
-            <p className="text-lg text-[--muted-text] mb-8 leading-relaxed">
-              Post creatives • Web banners • Web design • Monthly content 
+            <p className="text-xl text-[--text-secondary] mb-8 leading-relaxed max-w-2xl">
+              I create scroll-stopping visuals, strategic content, and high-converting campaigns that help small businesses and startups stand out and scale.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <a
+                href="mailto:kscreativelab@gmail.com"
+                className="btn-gold inline-block text-center font-semibold"
+              >
+                Start Your Project
+              </a>
               <a
                 href="https://portfolio-mfbe.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gold inline-block text-center"
+                className="btn-gold-outline inline-block text-center font-semibold"
               >
-                View Portfolio
-              </a>
-              <a
-                href="mailto:kscreativelab@gmail.com"
-                className="btn-gold-outline inline-block text-center"
-              >
-                Hire Me — Email
+                View My Work
               </a>
             </div>
           </div>

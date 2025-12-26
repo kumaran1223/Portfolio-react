@@ -21,32 +21,34 @@ export const ThemeProvider = ({ children }) => {
   const updateThemeStyles = (currentTheme) => {
     const isDark = currentTheme === 'dark';
 
-    // Premium dark-gold palette
-    const accentColor = isDark ? '#D4AF37' : '#D4AF37';
-    const softGold = isDark ? '#E6CFA0' : '#E6CFA0';
-    const textColor = isDark ? '#FFFFFF' : '#0F1115';
-    const bgColor = isDark ? '#0F1115' : '#F5F3F0';
-    const cardColor = isDark ? '#1A1A1F' : '#FFFFFF';
-    const borderColor = isDark ? '#2A2A2F' : '#E0DDD8';
-    const mutedText = isDark ? '#B9BEC3' : '#6B6B6B';
+    // Modern SaaS palette
+    const primaryColor = isDark ? '#1A202C' : '#F7FAFC';
+    const secondaryColor = isDark ? '#2D3748' : '#FFFFFF';
+    const accentStart = '#667EEA';
+    const accentEnd = '#764BA2';
+    const textColor = isDark ? '#E2E8F0' : '#1A202C';
+    const textSecondary = isDark ? '#A0AEC0' : '#4A5568';
+    const borderColor = isDark ? '#4A5568' : '#E2E8F0';
+    const successColor = '#48BB78';
+    const warningColor = '#ED8936';
 
-    document.documentElement.style.setProperty('--bg-color', bgColor);
-    document.documentElement.style.setProperty('--text-color', textColor);
-    document.documentElement.style.setProperty('--card-color', cardColor);
-    document.documentElement.style.setProperty('--accent-color', accentColor);
-    document.documentElement.style.setProperty('--soft-gold', softGold);
+    document.documentElement.style.setProperty('--bg-primary', primaryColor);
+    document.documentElement.style.setProperty('--bg-secondary', secondaryColor);
+    document.documentElement.style.setProperty('--accent-start', accentStart);
+    document.documentElement.style.setProperty('--accent-end', accentEnd);
+    document.documentElement.style.setProperty('--text-primary', textColor);
+    document.documentElement.style.setProperty('--text-secondary', textSecondary);
     document.documentElement.style.setProperty('--border-color', borderColor);
-    document.documentElement.style.setProperty('--muted-text', mutedText);
-    document.documentElement.style.setProperty('--neon-color', accentColor);
+    document.documentElement.style.setProperty('--success-color', successColor);
+    document.documentElement.style.setProperty('--warning-color', warningColor);
 
-    document.documentElement.style.setProperty(
-      '--neon-color-rgba-light',
-      isDark ? 'rgba(212, 175, 55, 0.3)' : 'rgba(212, 175, 55, 0.2)'
-    );
-    document.documentElement.style.setProperty(
-      '--neon-color-rgba-mid',
-      isDark ? 'rgba(212, 175, 55, 0.15)' : 'rgba(212, 175, 55, 0.1)'
-    );
+    // Legacy variables for compatibility
+    document.documentElement.style.setProperty('--bg-color', primaryColor);
+    document.documentElement.style.setProperty('--text-color', textColor);
+    document.documentElement.style.setProperty('--card-color', secondaryColor);
+    document.documentElement.style.setProperty('--accent-color', accentStart);
+    document.documentElement.style.setProperty('--muted-text', textSecondary);
+    document.documentElement.style.setProperty('--border-color', borderColor);
   };
 
   const toggleTheme = () => {

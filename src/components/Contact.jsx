@@ -52,12 +52,19 @@ const Contact = () => {
   return (
     <section id="contact" className="py-24 px-6 bg-[--bg-color] transition-colors duration-500">
       <div className="container mx-auto max-w-3xl">
-        <h2 className="text-4xl font-serif font-bold text-center text-[--accent-color] mb-6 transition-colors duration-500">
-          Let's Work Together
-        </h2>
-        <p className="text-lg text-[--muted-text] text-center max-w-2xl mx-auto mb-16 transition-colors duration-500">
-          Ready to elevate your brand? Get in touch and let's create something amazing.
-        </p>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-[--text-color] mb-4">
+            Ready to Get Started?
+          </h2>
+          <p className="text-lg text-[--text-secondary] max-w-2xl mx-auto mb-6">
+            Let's discuss your project and how I can help your brand grow.
+          </p>
+          <div className="flex justify-center gap-4 text-sm text-[--text-secondary]">
+            <span className="flex items-center gap-1">✓ Quick response</span>
+            <span className="flex items-center gap-1">✓ Clear communication</span>
+            <span className="flex items-center gap-1">✓ No hidden costs</span>
+          </div>
+        </div>
 
         {/* Notification Modal */}
         {showModal && (

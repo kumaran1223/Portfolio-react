@@ -46,41 +46,45 @@ const Projects = () => {
     <>
       <section id="projects" className="py-24 px-6 bg-[--bg-color] transition-colors duration-500">
         <div className="container mx-auto max-w-7xl">
-          <h2 className="text-4xl font-serif font-bold text-center text-[--accent-color] mb-16 transition-colors duration-500">
-            Featured Projects
-          </h2>
-          <p className="text-lg text-[--muted-text] text-center max-w-3xl mx-auto mb-16 transition-colors duration-500">
-            Deep-dive case studies showcasing design thinking, user research, and measurable results.
-          </p>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-[--text-color] mb-4">
+              Portfolio & Case Studies
+            </h2>
+            <p className="text-lg text-[--text-secondary] max-w-2xl mx-auto">
+              Real projects with real results. See how I've helped brands grow and convert.
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="glass-card overflow-hidden group cursor-pointer"
+                className="glass-card overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300"
                 onClick={() => setSelectedProject(project)}
               >
-                <div className="relative overflow-hidden h-64">
+                <div className="relative overflow-hidden h-64 bg-gradient-subtle">
                   <img
                     src={project.image}
                     alt={project.title}
                     loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                    <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold">
+                      View Case Study
+                    </span>
+                  </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-serif font-bold text-[--text-color] mb-2">{project.title}</h3>
-                  <p className="text-[--muted-text] mb-4 text-sm">{project.summary}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <h3 className="text-xl font-bold text-[--text-color] mb-2">{project.title}</h3>
+                  <p className="text-[--text-secondary] mb-4 text-sm leading-relaxed">{project.summary}</p>
+                  <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag, i) => (
-                      <span key={i} className="text-xs bg-[--accent-color]/20 text-[--accent-color] px-3 py-1 rounded-full">
+                      <span key={i} className="text-xs bg-gradient-subtle text-[--accent-start] px-3 py-1 rounded-full border border-[--border-color]">
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <button className="btn-gold-outline w-full text-sm">
-                    View Case Study
-                  </button>
                 </div>
               </div>
             ))}

@@ -10,17 +10,17 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-serif font-bold text-[--accent-color] mb-2">Kumaran S</h3>
-            <p className="text-[--muted-text]">Creative Designer & Brand Developer</p>
+            <h3 className="text-2xl font-bold text-[--text-color] mb-2">Kumaran S</h3>
+            <p className="text-[--text-secondary]">Creative Designer & Brand Developer</p>
           </div>
 
           {/* Quick Links */}
           <div>
             <h4 className="font-bold text-[--text-color] mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-[--muted-text]">
-              <li><a href="#projects" className="hover:text-[--accent-color] transition">Projects</a></li>
-              <li><a href="#services" className="hover:text-[--accent-color] transition">Services</a></li>
-              <li><a href="#contact" className="hover:text-[--accent-color] transition">Contact</a></li>
+            <ul className="space-y-2 text-[--text-secondary]">
+              <li><a href="#projects" className="hover:text-[--accent-start] transition">Projects</a></li>
+              <li><a href="#services" className="hover:text-[--accent-start] transition">Services</a></li>
+              <li><a href="#contact" className="hover:text-[--accent-start] transition">Contact</a></li>
             </ul>
           </div>
 
@@ -38,14 +38,56 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-[--border-color] pt-8 text-center">
-          <p className="text-[--muted-text] mb-4">
+        {/* Social Links */}
+        <div className="border-t border-[--border-color] pt-8 mb-8">
+          <div className="flex justify-center gap-6 mb-8">
+            <a
+              href="https://www.instagram.com/kscreativelabs/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[--text-secondary] hover:text-[--accent-start] transition duration-300 text-xl"
+              aria-label="Instagram"
+            >
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61585696467921"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[--text-secondary] hover:text-[--accent-start] transition duration-300 text-xl"
+              aria-label="Facebook"
+            >
+              <i className="fab fa-facebook"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/krish-kscreative"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[--text-secondary] hover:text-[--accent-start] transition duration-300 text-xl"
+              aria-label="LinkedIn"
+            >
+              <i className="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://x.com/kscreativelabs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[--text-secondary] hover:text-[--accent-start] transition duration-300 text-xl"
+              aria-label="Twitter"
+            >
+              <i className="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+
+        <div className="text-center">
+          <p className="text-[--text-secondary] mb-4 text-sm">
             &copy; 2024 Kumaran S. All rights reserved.
           </p>
           <a
             href="#home"
             onClick={scrollToTop}
-            className="text-[--accent-color] hover:text-[--soft-gold] transition duration-300 inline-block"
+            className="text-[--accent-start] hover:text-[--accent-end] transition duration-300 inline-block text-sm"
             aria-label="Back to top"
           >
             Back to Top ↑

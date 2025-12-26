@@ -4,73 +4,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Premium Gold Glow Effects */
+/* Modern Premium Styles */
 .neon-text {
-  text-shadow: 0 0 10px var(--neon-color-rgba-light);
-  color: var(--accent-color);
+  background: linear-gradient(135deg, var(--accent-start) 0%, var(--accent-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .neon-shadow {
-  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
 }
 
-/* Glass/3D Card Styles */
+/* Modern Card Styles */
 .glass-card {
-  background: rgba(26, 26, 31, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card:hover {
-  border-color: rgba(212, 175, 55, 0.4);
-  box-shadow: 0 12px 48px rgba(212, 175, 55, 0.2);
-  transform: translateY(-4px);
-}
-
-/* 3D Tilt Effect */
-.tilt-card {
-  perspective: 1000px;
-  transform-style: preserve-3d;
-}
-
-.tilt-card:hover {
-  transform: rotateX(5deg) rotateY(5deg) translateZ(10px);
+  border-color: var(--accent-start);
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.1);
+  transform: translateY(-8px);
 }
 
 /* Premium Button Styles */
 .btn-gold {
-  background: linear-gradient(135deg, #D4AF37 0%, #E6CFA0 100%);
-  border: 2px solid #D4AF37;
-  border-radius: 12px;
-  color: #0F1115;
+  background: linear-gradient(135deg, var(--accent-start) 0%, var(--accent-end) 100%);
+  border: none;
+  border-radius: 10px;
+  color: #FFFFFF;
   font-weight: 600;
   padding: 12px 28px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  cursor: pointer;
 }
 
 .btn-gold:hover {
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
   transform: translateY(-2px);
 }
 
 .btn-gold-outline {
   background: transparent;
-  border: 2px solid #D4AF37;
-  color: #D4AF37;
-  border-radius: 12px;
+  border: 2px solid var(--accent-start);
+  color: var(--accent-start);
+  border-radius: 10px;
   font-weight: 600;
-  padding: 12px 28px;
+  padding: 10px 26px;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .btn-gold-outline:hover {
-  background: #D4AF37;
-  color: #0F1115;
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+  background: var(--accent-start);
+  color: #FFFFFF;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
 }
 
 /* Smooth Scroll */
@@ -134,31 +127,43 @@ html {
   font-weight: 700;
 }
 
-/* Premium Dark-Gold Theme Variables */
+/* Modern SaaS Theme Variables */
 :root {
-  --bg-color: #0F1115;
-  --text-color: #FFFFFF;
-  --card-color: #1A1A1F;
-  --accent-color: #D4AF37;
-  --soft-gold: #E6CFA0;
-  --border-color: #2A2A2F;
-  --muted-text: #B9BEC3;
-  --neon-color: #D4AF37;
-  --neon-color-rgba-light: rgba(212, 175, 55, 0.3);
-  --neon-color-rgba-mid: rgba(212, 175, 55, 0.15);
+  --bg-primary: #1A202C;
+  --bg-secondary: #2D3748;
+  --accent-start: #667EEA;
+  --accent-end: #764BA2;
+  --text-primary: #E2E8F0;
+  --text-secondary: #A0AEC0;
+  --border-color: #4A5568;
+  --success-color: #48BB78;
+  --warning-color: #ED8936;
+
+  /* Legacy variables for compatibility */
+  --bg-color: #1A202C;
+  --text-color: #E2E8F0;
+  --card-color: #2D3748;
+  --accent-color: #667EEA;
+  --muted-text: #A0AEC0;
 }
 
-/* Light Mode Variables (applied via [data-theme='light']) */
+/* Light Mode Variables */
 [data-theme='light'] {
-  --bg-color: #F5F3F0;
-  --text-color: #0F1115;
+  --bg-primary: #F7FAFC;
+  --bg-secondary: #FFFFFF;
+  --accent-start: #667EEA;
+  --accent-end: #764BA2;
+  --text-primary: #1A202C;
+  --text-secondary: #4A5568;
+  --border-color: #E2E8F0;
+  --success-color: #38A169;
+  --warning-color: #C05621;
+
+  /* Legacy variables for compatibility */
+  --bg-color: #F7FAFC;
+  --text-color: #1A202C;
   --card-color: #FFFFFF;
-  --accent-color: #D4AF37;
-  --soft-gold: #E6CFA0;
-  --border-color: #E0DDD8;
-  --muted-text: #6B6B6B;
-  --neon-color: #D4AF37;
-  --neon-color-rgba-light: rgba(212, 175, 55, 0.2);
-  --neon-color-rgba-mid: rgba(212, 175, 55, 0.1);
+  --accent-color: #667EEA;
+  --muted-text: #4A5568;
 }
 
