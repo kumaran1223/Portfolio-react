@@ -64,14 +64,14 @@ const Services = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="glass-card p-8 hover:shadow-lg transition-all duration-300">
-              <div className="text-5xl mb-4">{service.icon}</div>
-              <h3 className="text-2xl font-bold text-[--text-color] mb-3">{service.title}</h3>
+            <div key={index} className="glass-card p-8 hover:shadow-lg transition-all duration-300 group">
+              <div className="text-5xl mb-4 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 inline-block">{service.icon}</div>
+              <h3 className="text-2xl font-bold text-[--text-color] mb-3 transition-colors duration-300 group-hover:text-[--accent-start]">{service.title}</h3>
               <p className="text-[--text-secondary] mb-6">{service.description}</p>
-              
+
               <ul className="space-y-3 mb-8">
                 {service.bullets.map((bullet, i) => (
-                  <li key={i} className="flex items-start gap-3 text-[--text-secondary]">
+                  <li key={i} className="flex items-start gap-3 text-[--text-secondary] transition-all duration-300 group-hover:translate-x-1">
                     <span className="text-[--accent-start] font-bold text-lg">✓</span>
                     <span className="text-[--text-color]">{bullet}</span>
                   </li>

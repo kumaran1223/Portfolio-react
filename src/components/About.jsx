@@ -1,4 +1,13 @@
 const About = () => {
+  const tools = [
+    { name: 'Figma', icon: 'fa-figma' },
+    { name: 'Photoshop', icon: 'fa-image' },
+    { name: 'HTML/CSS', icon: 'fa-code' },
+    { name: 'React', icon: 'fa-react' },
+    { name: 'JavaScript', icon: 'fa-js' },
+    { name: 'Canva', icon: 'fa-palette' },
+  ];
+
   return (
     <section id="about" className="py-24 px-6 bg-[--bg-color] transition-colors duration-500">
       <div className="container mx-auto max-w-6xl">
@@ -27,7 +36,7 @@ const About = () => {
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-[--text-color] mb-8 text-center">Experience</h3>
           <div className="max-w-2xl mx-auto">
-            <div className="glass-card p-8 border-l-4 border-[--accent-start]">
+            <div className="glass-card p-8 border-l-4 border-[--accent-start] hover:shadow-lg transition-all duration-300">
               <div className="flex items-start gap-4">
                 <div className="w-3 h-3 rounded-full bg-[--accent-start] mt-2 flex-shrink-0"></div>
                 <div>
@@ -43,10 +52,16 @@ const About = () => {
         {/* Tools & Skills */}
         <div>
           <h3 className="text-2xl font-bold text-[--text-color] mb-8 text-center">Tools & Technologies</h3>
-          <div className="flex flex-wrap justify-center gap-3">
-            {['Figma', 'Photoshop', 'HTML/CSS', 'React', 'JavaScript', 'Canva'].map((tool) => (
-              <div key={tool} className="glass-card px-5 py-2 text-center hover:border-[--accent-start] transition-colors">
-                <p className="text-[--text-color] font-medium text-sm">{tool}</p>
+          <div className="flex flex-wrap justify-center gap-4">
+            {tools.map((tool) => (
+              <div
+                key={tool.name}
+                className="glass-card px-6 py-3 text-center hover:border-[--accent-start] hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer group"
+              >
+                <div className="flex items-center gap-2 justify-center">
+                  <i className={`fas ${tool.icon} text-[--accent-color] text-lg group-hover:text-[--accent-start] transition-colors duration-300`}></i>
+                  <p className="text-[--text-color] font-medium text-sm">{tool.name}</p>
+                </div>
               </div>
             ))}
           </div>

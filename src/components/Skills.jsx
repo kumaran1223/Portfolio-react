@@ -89,30 +89,58 @@ const Skills = () => {
 
 const SkillBar = ({ name, progress, isVisible, icon }) => {
   const [currentProgress, setCurrentProgress] = useState(0);
+  const [displayProgress, setDisplayProgress] = useState(0);
+  const [stage, setStage] = useState('idle'); // idle, filling-to-100, pausing, dropping
 
   useEffect(() => {
-    if (isVisible) {
-      const timer = setTimeout(() => {
-        let current = 0;
-        const increment = progress / 100;
-        const interval = setInterval(() => {
-          current += increment;
-          if (current >= progress) {
-            current = progress;
-            clearInterval(interval);
-          }
-          setCurrentProgress(Math.round(current));
-        }, 15);
+    if (!isVisible) return;
 
-        return () => clearInterval(interval);
-      }, 300);
+    // Stage 1: Animate to 100%
+    setStage('filling-to-100');
+    let current = 0;
+    const fillInterval = setInterval(() => {
+      current += 2;
+      if (current >= 100) {
+        current = 100;
+        clearInterval(fillInterval);
+        setCurrentProgress(100);
+        setDisplayProgress(100);
+        setStage('pausing');
+      } else {
+        setCurrentProgress(current);
+        setDisplayProgress(current);
+      }
+    }, 10);
 
-      return () => clearTimeout(timer);
-    }
-  }, [isVisible, progress]);
+    return () => clearInterval(fillInterval);
+  }, [isVisible]);
+
+  // Stage 2: Pause at 100%, then drop to actual percentage
+  useEffect(() => {
+    if (stage !== 'pausing') return;
+
+    const pauseTimer = setTimeout(() => {
+      setStage('dropping');
+      // Animate down to actual percentage
+      let current = 100;
+      const dropInterval = setInterval(() => {
+        current -= (100 - progress) / 20;
+        if (current <= progress) {
+          current = progress;
+          clearInterval(dropInterval);
+          setStage('complete');
+        }
+        setDisplayProgress(Math.round(current));
+      }, 30);
+
+      return () => clearInterval(dropInterval);
+    }, 750); // 0.75 second pause at 100%
+
+    return () => clearTimeout(pauseTimer);
+  }, [stage, progress]);
 
   return (
-    <div className="glass-card p-4">
+    <div className="glass-card p-4 hover:shadow-lg transition-all duration-300">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-3">
           {icon && <i className={`fas ${icon} text-[--accent-color] text-lg`}></i>}
@@ -122,8 +150,8 @@ const SkillBar = ({ name, progress, isVisible, icon }) => {
       </div>
       <div className="w-full bg-[--border-color] rounded-full h-2 overflow-hidden">
         <div
-          className="bg-gradient-to-r from-[--accent-color] to-[--soft-gold] h-full rounded-full transition-all duration-500"
-          style={{ width: isVisible ? `${progress}%` : '0%' }}
+          className="bg-gradient-to-r from-[--accent-color] to-[--soft-gold] h-full rounded-full transition-all duration-300"
+          style={{ width: `${displayProgress}%` }}
         ></div>
       </div>
     </div>

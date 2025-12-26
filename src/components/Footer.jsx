@@ -18,9 +18,9 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-[--text-color] mb-4">Quick Links</h4>
             <ul className="space-y-2 text-[--text-secondary]">
-              <li><a href="#projects" className="hover:text-[--accent-start] transition">Projects</a></li>
-              <li><a href="#services" className="hover:text-[--accent-start] transition">Services</a></li>
-              <li><a href="#contact" className="hover:text-[--accent-start] transition">Contact</a></li>
+              <li><a href="#projects" className="hover:text-[--accent-start] transition-all duration-300 hover:translate-x-1 inline-block">Projects</a></li>
+              <li><a href="#services" className="hover:text-[--accent-start] transition-all duration-300 hover:translate-x-1 inline-block">Services</a></li>
+              <li><a href="#contact" className="hover:text-[--accent-start] transition-all duration-300 hover:translate-x-1 inline-block">Contact</a></li>
             </ul>
           </div>
 
@@ -45,8 +45,9 @@ const Footer = () => {
               href="https://www.instagram.com/kscreativelabs/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[--text-secondary] hover:text-[--accent-start] transition duration-300 text-xl"
+              className="text-[--text-secondary] hover:text-[--accent-start] transition-all duration-300 text-2xl hover:scale-125 hover:-translate-y-1"
               aria-label="Instagram"
+              title="Follow on Instagram"
             >
               <i className="fab fa-instagram"></i>
             </a>
@@ -54,8 +55,9 @@ const Footer = () => {
               href="https://www.facebook.com/profile.php?id=61585696467921"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[--text-secondary] hover:text-[--accent-start] transition duration-300 text-xl"
+              className="text-[--text-secondary] hover:text-[--accent-start] transition-all duration-300 text-2xl hover:scale-125 hover:-translate-y-1"
               aria-label="Facebook"
+              title="Follow on Facebook"
             >
               <i className="fab fa-facebook"></i>
             </a>
@@ -63,8 +65,9 @@ const Footer = () => {
               href="https://www.linkedin.com/in/krish-kscreative"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[--text-secondary] hover:text-[--accent-start] transition duration-300 text-xl"
+              className="text-[--text-secondary] hover:text-[--accent-start] transition-all duration-300 text-2xl hover:scale-125 hover:-translate-y-1"
               aria-label="LinkedIn"
+              title="Connect on LinkedIn"
             >
               <i className="fab fa-linkedin"></i>
             </a>
@@ -72,8 +75,9 @@ const Footer = () => {
               href="https://x.com/kscreativelabs"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[--text-secondary] hover:text-[--accent-start] transition duration-300 text-xl"
+              className="text-[--text-secondary] hover:text-[--accent-start] transition-all duration-300 text-2xl hover:scale-125 hover:-translate-y-1"
               aria-label="Twitter"
+              title="Follow on Twitter"
             >
               <i className="fab fa-twitter"></i>
             </a>

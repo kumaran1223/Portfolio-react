@@ -50,21 +50,21 @@ const Header = () => {
         <a
           href="#home"
           onClick={(e) => handleNavClick(e, '#home')}
-          className="text-2xl font-bold font-serif text-[--accent-color] hover:text-[--soft-gold] transition duration-300"
+          className="text-2xl font-bold font-serif text-[--accent-color] hover:text-[--soft-gold] transition-all duration-300 hover:scale-110"
         >
           Kumaran S
         </a>
-        
+
         <div className="hidden md:flex space-x-8 items-center">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className={`text-sm font-medium transition duration-300 ${
+              className={`text-sm font-medium transition-all duration-300 relative pb-1 ${
                 activeSection === link.href.substring(1)
                   ? 'text-[--accent-color] border-b-2 border-[--accent-color]'
-                  : 'text-[--text-color] hover:text-[--accent-color]'
+                  : 'text-[--text-color] hover:text-[--accent-color] hover:border-b-2 hover:border-[--accent-color]'
               }`}
             >
               {link.label}
@@ -72,7 +72,7 @@ const Header = () => {
           ))}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full border border-[--border-color] text-[--text-color] hover:text-[--accent-color] hover:border-[--accent-color] transition duration-300 text-lg"
+            className="p-2 rounded-full border border-[--border-color] text-[--text-color] hover:text-[--accent-color] hover:border-[--accent-color] transition-all duration-300 text-lg hover:scale-110 hover:shadow-lg"
             title="Toggle Theme"
             aria-label="Toggle dark/light theme"
           >

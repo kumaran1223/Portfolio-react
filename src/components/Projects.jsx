@@ -59,7 +59,7 @@ const Projects = () => {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="glass-card overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300"
+                className="glass-card overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-105"
                 onClick={() => setSelectedProject(project)}
               >
                 <div className="relative overflow-hidden h-64 bg-gradient-subtle">
@@ -67,20 +67,20 @@ const Projects = () => {
                     src={project.image}
                     alt={project.title}
                     loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                    <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold">
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                    <span className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300 font-semibold scale-75 group-hover:scale-100">
                       View Case Study
                     </span>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-[--text-color] mb-2">{project.title}</h3>
+                  <h3 className="text-xl font-bold text-[--text-color] mb-2 transition-colors duration-300 group-hover:text-[--accent-start]">{project.title}</h3>
                   <p className="text-[--text-secondary] mb-4 text-sm leading-relaxed">{project.summary}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag, i) => (
-                      <span key={i} className="text-xs bg-gradient-subtle text-[--accent-start] px-3 py-1 rounded-full border border-[--border-color]">
+                      <span key={i} className="text-xs bg-gradient-subtle text-[--accent-start] px-3 py-1 rounded-full border border-[--border-color] transition-all duration-300 hover:border-[--accent-start] hover:scale-110">
                         {tag}
                       </span>
                     ))}
