@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold text-[--text-color] mb-2">Kumaran S</h3>
+            <h3 className="text-2xl font-bold text-[--text-color] mb-2">Krish S</h3>
             <p className="text-[--text-secondary]">Creative Designer & Brand Developer</p>
           </div>
 
@@ -94,7 +94,7 @@ const Footer = () => {
 
         <div className="text-center">
           <p className="text-[--text-secondary] mb-4 text-sm">
-            &copy; 2024 Kumaran S. All rights reserved.
+            &copy; 2025 Krish S. All rights reserved.
           </p>
           <a
             href="#home"
