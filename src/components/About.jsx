@@ -30,7 +30,7 @@ const About = () => {
 
         <div className={`max-w-3xl mx-auto mb-16 transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <p className="text-lg text-[--text-color] leading-relaxed mb-6">
-            I'm Kumaran S — a creative designer who turns brand stories into scroll-stopping visuals that drive real business results.
+            I'm Krish S — a creative designer who turns brand stories into scroll-stopping visuals that drive real business results.
           </p>
           <p className="text-lg text-[--text-color] leading-relaxed mb-6">
             I specialize in creating high-converting social content, strategic banners, and marketing materials that help small businesses and startups stand out in a crowded market.
