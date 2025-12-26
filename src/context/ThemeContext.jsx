@@ -21,14 +21,14 @@ export const ThemeProvider = ({ children }) => {
   const updateThemeStyles = (currentTheme) => {
     const isDark = currentTheme === 'dark';
 
-    // Modern SaaS palette
-    const primaryColor = isDark ? '#1A202C' : '#F7FAFC';
-    const secondaryColor = isDark ? '#2D3748' : '#FFFFFF';
-    const accentStart = '#667EEA';
-    const accentEnd = '#764BA2';
-    const textColor = isDark ? '#E2E8F0' : '#1A202C';
-    const textSecondary = isDark ? '#A0AEC0' : '#4A5568';
-    const borderColor = isDark ? '#4A5568' : '#E2E8F0';
+    // Premium Dark-Gold Palette
+    const primaryColor = isDark ? '#0F1115' : '#F7FAFC'; // Dark background
+    const secondaryColor = isDark ? '#1A1F2E' : '#FFFFFF'; // Card background
+    const accentStart = '#D4AF37'; // Metallic gold
+    const accentEnd = '#E6CFA0'; // Soft gold
+    const textColor = isDark ? '#FFFFFF' : '#1A202C'; // White text on dark
+    const textSecondary = isDark ? '#B9BEC3' : '#4A5568'; // Muted text
+    const borderColor = isDark ? '#2A2F3E' : '#E2E8F0'; // Subtle borders
     const successColor = '#48BB78';
     const warningColor = '#ED8936';
 

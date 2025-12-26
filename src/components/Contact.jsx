@@ -159,7 +159,7 @@ const Contact = () => {
 
           <div className="flex justify-center gap-6 mt-8">
             <a
-              href="www.linkedin.com/in/kumarans311221"
+              href="https://www.linkedin.com/in/krish-kscreative"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[--text-color] hover:text-[--accent-color] transition duration-300 text-2xl"
@@ -168,13 +168,31 @@ const Contact = () => {
               <i className="fab fa-linkedin"></i>
             </a>
             <a
-              href="https://github.com/kumaran1223"
+              href="https://www.instagram.com/kscreativelabs/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[--text-color] hover:text-[--accent-color] transition duration-300 text-2xl"
-              aria-label="GitHub"
+              aria-label="Instagram"
             >
-              <i className="fab fa-github"></i>
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61585696467921"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[--text-color] hover:text-[--accent-color] transition duration-300 text-2xl"
+              aria-label="Facebook"
+            >
+              <i className="fab fa-facebook"></i>
+            </a>
+            <a
+              href="https://x.com/kscreativelabs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[--text-color] hover:text-[--accent-color] transition duration-300 text-2xl"
+              aria-label="Twitter"
+            >
+              <i className="fab fa-twitter"></i>
             </a>
           </div>
         </div>
