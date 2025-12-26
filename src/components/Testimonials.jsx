@@ -7,19 +7,19 @@ const Testimonials = () => {
     {
       name: 'Sarah Johnson',
       role: 'Marketing Director, TechStart',
-      text: 'Kumaran transformed our social media presence with stunning visuals. Our engagement increased by 150% in just two months. Highly professional and creative!',
+      text: 'Krish transformed our social media presence with stunning visuals. Our engagement increased by 150% in just two months. Highly professional and creative!',
       avatar: 'https://placehold.co/60x60/D4AF37/0F1115?text=SJ',
     },
     {
       name: 'Michael Chen',
       role: 'Founder, E-Commerce Plus',
-      text: 'The website design was exactly what we needed. Clean, modern, and conversion-focused. Kumaran understood our brand vision perfectly.',
+      text: 'The website design was exactly what we needed. Clean, modern, and conversion-focused. Krish understood our brand vision perfectly.',
       avatar: 'https://placehold.co/60x60/D4AF37/0F1115?text=MC',
     },
     {
       name: 'Emily Rodriguez',
       role: 'Brand Manager, Luxury Goods Co',
-      text: 'Working with Kumaran was a game-changer. The design quality is premium, and the attention to detail is exceptional. Highly recommended!',
+      text: 'Working with Krish was a game-changer. The design quality is premium, and the attention to detail is exceptional. Highly recommended!',
       avatar: 'https://placehold.co/60x60/D4AF37/0F1115?text=ER',
     },
   ];
