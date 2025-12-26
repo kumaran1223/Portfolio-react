@@ -52,7 +52,7 @@ const Header = () => {
           onClick={(e) => handleNavClick(e, '#home')}
           className="text-2xl font-bold font-serif text-[--accent-color] hover:text-[--soft-gold] transition-all duration-300 hover:scale-110"
         >
-          Krish S
+          KRISH S
         </a>
 
         <div className="hidden md:flex space-x-8 items-center">
