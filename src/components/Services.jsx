@@ -50,7 +50,7 @@ const Services = () => {
         'Priority support',
       ],
       turnaround: 'Ongoing',
-      price: '$299-599/mo',
+      price: '$299/mo',
     },
   ];
 
