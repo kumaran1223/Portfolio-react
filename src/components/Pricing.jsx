@@ -7,7 +7,7 @@ const Pricing = () => {
     {
       type: 'One-Time Projects',
       description: 'Perfect for single projects or campaigns',
-      range: '$250 – $500',
+      range: '$149 – $249',
       includes: [
         'Social media graphics',
         'Web banners',
@@ -20,7 +20,7 @@ const Pricing = () => {
     {
       type: 'Monthly Retainer',
       description: 'Ongoing design support for your brand',
-      range: '$200 – $450/month',
+      range: '$199 – $399/month',
       includes: [
         '8-12 posts per month',
         'Content calendar',
