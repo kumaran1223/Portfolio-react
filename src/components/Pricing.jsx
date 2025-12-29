@@ -7,7 +7,7 @@ const Pricing = () => {
     {
       type: 'One-Time Projects',
       description: 'Perfect for single projects or campaigns',
-      range: '$149 – $249',
+      range: '$129 – $249',
       includes: [
         'Social media graphics',
         'Web banners',
