@@ -84,7 +84,7 @@ const Pricing = () => {
                 rel="noopener noreferrer"
                 className={`w-full text-center block ${pkg.featured ? 'btn-gold' : 'btn-gold-outline'}`}
               >
-                Get Started
+                Free Strategy Call
               </a>
             </div>
           ))}
