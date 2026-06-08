@@ -14,7 +14,7 @@ const Services = () => {
         'Unlimited revisions',
       ],
       turnaround: '3-5 days',
-      price: '$49',
+      price: '$99',
     },
     {
       title: 'Creative Posters & Banners',
@@ -26,7 +26,7 @@ const Services = () => {
         'Responsive design',
       ],
       turnaround: '2-3 days',
-      price: '$99',
+      price: '$199',
     },
     {
       title: 'Paid Ads & Promotions',
@@ -38,7 +38,7 @@ const Services = () => {
         'Performance tracking',
       ],
       turnaround: '2-3 days',
-      price: '$75',
+      price: '$299',
     },
     {
       title: 'Brand Strategy & Growth',
@@ -50,7 +50,7 @@ const Services = () => {
         'Priority support',
       ],
       turnaround: 'Ongoing',
-      price: '$299/mo',
+      price: '$399/mo',
     },
   ];
 
