@@ -94,7 +94,7 @@ const Footer = () => {
 
         <div className="text-center">
           <p className="text-[--text-secondary] mb-4 text-sm">
-            &copy; 2025 Krish S. All rights reserved.
+            &copy; 2026 Kumaran S. All rights reserved.
           </p>
           <a
             href="#home"
